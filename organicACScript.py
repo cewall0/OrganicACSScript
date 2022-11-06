@@ -1,6 +1,13 @@
-#This program is a script I wrote to enter the raw student score from the 1998 ACS organic chemistry exam
-# out of 70 points. The program converts that raw score to the national percentile for that
-# student. 
+# organicACSScript.py
+# Chad E. Wallace, Ph.d.
+# Fall 2022
+#
+# This program is a script I wrote that analyzes the grade for a senior student at Anderson University
+# who takes the 1998 ACS organic chemistry exam as a senior and/or the 2002 ACS organic chemistry
+# exam as a student in organic chemistry. The number of questions the student misses is entered
+# and this progarm calcualtes the raw score, the percentile ranking, and/or the exam grade as appropriate.
+
+# Initialize some needed variables.
 
 numMissed = 0 # This is how many the student missed out of 70.
 raw = 0 # This is the student's raw score out of 70
@@ -9,10 +16,15 @@ cont = " "  # input to see if we should continue the program
 quit = "q"
 exam = ""
 
+
+# Allow user to select one of the two exams that we use at Anderson University
+
 print("Which exam are we grading?")
 print("A: 1998 ACS Exam for senior assessment")
 print("B: 2002 ACS Exam for organic chemistry class final exam")
 exam = input()
+
+# Make sure a correct input is used.
 while exam != "A" and exam != "a" and exam != "B" and exam != "b":
     print("Incorrect input")
     print("A: 1998 ACS Exam for senior assessment")
@@ -20,7 +32,13 @@ while exam != "A" and exam != "a" and exam != "B" and exam != "b":
     print("Please enter either A or B. . .")
     exam = input()
 
+# if the user wants to look at the 1998 exam, which we use for senior assessment. . .
+
 if exam == "A" or exam == "a":
+
+# For the 1998 ACS organic exam as an assessment for a senior. Enter the numbr of questions missed from the 1998 ACS organic chemistry exam
+# out of 70 points. The program converts that to a raw score and to the national percentile for that
+# student. 
 
     print("\nFor the 1998 ACS Organinc Chemistry Exam\n")
 
@@ -32,7 +50,7 @@ if exam == "A" or exam == "a":
         
         raw = 70 - int(numMissed)
 
-        # convert raw score to percentile for 2002 ACS exam
+        # convert raw score to percentile for 1998 ACS exam
 
         if (raw >= 66):
             perc = 100
@@ -129,12 +147,16 @@ if exam == "A" or exam == "a":
         print("To quit hit 'q', else hit any other key.")
         cont = input()
 else:
-        #This part of the program is a script I wrote to enter the raw student score from the 2002 ACS organic chemistry exam
-    # out of 70 points. The program converts that raw score to the national percentile for that
+
+    # 2002 ACS organic chemistry exam was selected.
+    # This part of the program enters the number missed for the 2002 ACS organic chemistry exam
+    # out of 70 points. This is for students at the end of their usually sophomore organic chemistry class. 
+    # The program converts that raw score to the national percentile for that
     # student. Then, using the curve I set up for this exam, finds the final grade (out of 100)
     # that I assign to the student.  If the student takes the exam and gets 0th percentile, they get a 50.  
     # The 50th percntile grade gets and 80 on the exam. 100th percentile gets 100.
 
+    # Initialize some variables
     numMissed = 0 # This is how many the student missed out of 70.
     raw = 0 # This is the student's raw score out of 70
     perc = 0 #  This is the student's national percentile ranking
@@ -145,6 +167,7 @@ else:
 
     print("\nFor the 2002 ACS Organinc Chemistry Exam\n")
 
+    # We keep running the program until q is entered to quit.
     while (cont != quit):
 
         #Get the percentile for the students
