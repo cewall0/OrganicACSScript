@@ -20,21 +20,143 @@ exam = ""
 # Allow user to select one of the two exams that we use at Anderson University
 
 print("Which exam are we grading?")
-print("A: 1998 ACS Exam for senior assessment")
-print("B: 2002 ACS Exam for organic chemistry class final exam")
+print("A: 1994 ACS Exam for senior assessment")
+print("B: 1998 ACS Exam for senior assessment")
+print("C: 2002 ACS Exam for organic chemistry class final exam")
 exam = input()
 
 # Make sure a correct input is used.
 while exam != "A" and exam != "a" and exam != "B" and exam != "b":
     print("Incorrect input")
-    print("A: 1998 ACS Exam for senior assessment")
-    print("B: 2002 ACS Exam for organic chemistry class final exam")
-    print("Please enter either A or B. . .")
+    print("A: 1994 ACS Exam for senior assessment retake exam")
+    print("B: 1998 ACS Exam for senior assessment")
+    print("C: 2002 ACS Exam for organic chemistry class final exam")
+    print("Please enter either A, B, or C. . .")
     exam = input()
+# if the user wants to look at the 1994 exam, which we use for senior assessment retakes at AU. . .
+
+if exam == "A" or exam == "a":
+
+# For the 1994 ACS organic exam as an assessment for a senior. Enter the numbr of questions missed from the 1998 ACS organic chemistry exam
+# out of 70 points. The program converts that to a raw score and to the national percentile for that
+# student. 
+
+    print("\nFor the 1994 ACS Organinc Chemistry Exam\n")
+
+    while (cont != quit):
+
+        #Get the percentile for the students
+        print("Enter the number missed out of 70.")
+        numMissed = input()
+        
+        raw = 70 - int(numMissed)
+
+        # convert raw score to percentile for 1998 ACS exam
+
+        if (raw >= 66):
+            perc = 100
+        elif (raw >= 64):
+            perc = 99
+        elif (raw >= 62):
+            perc = 98
+        elif (raw >= 60):
+            perc = 97
+        elif (raw == 59):
+            perc = 96
+        elif (raw == 58):
+            perc = 95
+        elif (raw == 57):
+            perc = 93
+        elif (raw == 56):
+            perc = 92
+        elif (raw == 55):
+            perc = 90
+        elif (raw == 54):
+            perc = 89
+        elif (raw == 53):
+            perc = 87
+        elif (raw == 52):
+            perc = 86
+        elif (raw == 51):
+            perc = 83
+        elif (raw == 50):
+            perc = 82
+        elif (raw == 49):
+            perc = 80
+        elif (raw == 48):
+            perc = 78
+        elif (raw == 47):
+            perc = 75
+        elif (raw == 46):
+            perc = 73
+        elif (raw == 45):
+            perc = 70
+        elif (raw == 44):
+            perc = 67
+        elif (raw == 43):
+            perc = 65
+        elif (raw == 42):
+            perc = 62
+        elif (raw == 41):
+            perc = 59
+        elif (raw == 40):
+            perc = 56
+        elif (raw == 39):
+            perc = 53
+        elif (raw == 38):
+            perc = 49
+        elif (raw == 37):
+            perc = 46
+        elif (raw == 36):
+            perc = 43
+        elif (raw == 35):
+            perc = 39
+        elif (raw == 34):
+            perc = 36
+        elif (raw == 33):
+            perc = 33
+        elif (raw == 32):
+            perc = 29
+        elif (raw == 31):
+            perc = 26
+        elif (raw == 30):
+            perc = 24    
+        elif (raw == 29):
+            perc = 21
+        elif (raw == 28):
+            perc = 18
+        elif (raw == 27):
+            perc = 16
+        elif (raw == 26):
+            perc = 13
+        elif (raw == 25):
+            perc = 11
+        elif (raw == 24):
+            perc = 8   
+        elif (raw == 23):
+            perc = 6
+        elif (raw == 22):
+            perc = 5
+        elif (raw == 21):
+            perc = 4
+        elif (raw == 20):
+            perc = 3
+        elif (raw >= 18):
+            perc = 2
+        elif (raw >= 15):
+            perc = 1
+        else:
+            perc = 0 
+
+        print("The student raw grade is: " + str(raw))
+        print("The student perentile ranking is: " + str(perc))
+        print("")
+        print("To quit hit 'q', else hit any other key.")
+        cont = input()
 
 # if the user wants to look at the 1998 exam, which we use for senior assessment. . .
 
-if exam == "A" or exam == "a":
+if exam == "B" or exam == "b":
 
 # For the 1998 ACS organic exam as an assessment for a senior. Enter the numbr of questions missed from the 1998 ACS organic chemistry exam
 # out of 70 points. The program converts that to a raw score and to the national percentile for that
@@ -106,7 +228,7 @@ if exam == "A" or exam == "a":
             perc = 47
         elif (raw == 36):
             perc = 43
-        elif (raw == 36):
+        elif (raw == 35):
             perc = 40
         elif (raw == 34):
             perc = 36
