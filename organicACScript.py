@@ -7,6 +7,7 @@
 # exam as a student in organic chemistry. The number of questions the student misses is entered
 # and this progarm calcualtes the raw score, the percentile ranking, and/or the exam grade as appropriate.
 
+
 # Initialize some needed variables.
 
 numMissed = 0 # This is how many the student missed out of 70.
@@ -15,7 +16,36 @@ perc = 0 #  This is the student's national percentile ranking
 cont = " "  # input to see if we should continue the program
 quit = "q"
 exam = ""
+numMissed = 0
+userInput = ""
 
+# Function to get the user Input of number missed
+def inputNumber(message):
+  while True:
+    try:
+       numMissed = int(input(message)) 
+
+    except ValueError:
+       print("")
+       print("Not an integer. Try again. ")
+       print("")
+       continue
+    if numMissed < 0:
+        print("")
+        print('Please enter an integer that is 0 or positive. ')
+        print("")
+        continue
+    if numMissed > 70:
+        print("")
+        print("Please enter a number and is 70 or less. ")
+        print("")
+        continue
+    else:
+       return numMissed 
+       break 
+
+
+# Main part of program
 
 # Allow user to select one of the two exams that we use at Anderson University
 
@@ -26,7 +56,7 @@ print("C: 2002 ACS Exam for organic chemistry class final exam")
 exam = input()
 
 # Make sure a correct input is used.
-while exam != "A" and exam != "a" and exam != "B" and exam != "b":
+while exam != "A" and exam != "a" and exam != "B" and exam != "b" and exam != "C" and exam!= "c":
     print("Incorrect input")
     print("A: 1994 ACS Exam for senior assessment retake exam")
     print("B: 1998 ACS Exam for senior assessment")
@@ -41,14 +71,14 @@ if exam == "A" or exam == "a":
 # out of 70 points. The program converts that to a raw score and to the national percentile for that
 # student. 
 
-    print("\nFor the 1994 ACS Organinc Chemistry Exam\n")
+    print("\nFor the 1994 ACS Organic Chemistry Exam\n")
 
     while (cont != quit):
 
-        #Get the percentile for the students
-        print("Enter the number missed out of 70.")
-        numMissed = input()
-        
+        #Get the number missed out of 70 questions
+        numMissed = inputNumber("Enter the number missed out of 70. ")
+
+        #Get the studet's raw score out of 70
         raw = 70 - int(numMissed)
 
         # convert raw score to percentile for 1998 ACS exam
@@ -148,8 +178,13 @@ if exam == "A" or exam == "a":
         else:
             perc = 0 
 
+        print("")
+        print("**********************************************")
+        print("")
         print("The student raw grade is: " + str(raw))
         print("The student perentile ranking is: " + str(perc))
+        print("")
+        print("**********************************************")
         print("")
         print("To quit hit 'q', else hit any other key.")
         cont = input()
@@ -162,14 +197,14 @@ if exam == "B" or exam == "b":
 # out of 70 points. The program converts that to a raw score and to the national percentile for that
 # student. 
 
-    print("\nFor the 1998 ACS Organinc Chemistry Exam\n")
+    print("\nFor the 1998 ACS Organic Chemistry Exam\n")
 
     while (cont != quit):
 
-        #Get the percentile for the students
-        print("Enter the number missed out of 70.")
-        numMissed = input()
+        #Get the number missed out of 70 questions
+        numMissed = inputNumber("Enter the number missed out of 70. ")
         
+        #Get the studet's raw score out of 70
         raw = 70 - int(numMissed)
 
         # convert raw score to percentile for 1998 ACS exam
@@ -263,12 +298,18 @@ if exam == "B" or exam == "b":
         else:
             perc = 0 
 
+        print("")
+        print("**********************************************")
+        print("")
         print("The student raw grade is: " + str(raw))
         print("The student perentile ranking is: " + str(perc))
         print("")
+        print("**********************************************")
+        print("")
         print("To quit hit 'q', else hit any other key.")
         cont = input()
-else:
+
+if exam == "C" or exam == "c":
 
     # 2002 ACS organic chemistry exam was selected.
     # This part of the program enters the number missed for the 2002 ACS organic chemistry exam
@@ -287,15 +328,15 @@ else:
     zero = 0
     grade = 0 # grade given to student out of 100
 
-    print("\nFor the 2002 ACS Organinc Chemistry Exam\n")
+    print("\nFor the 2002 ACS Organic Chemistry Exam\n")
 
     # We keep running the program until q is entered to quit.
     while (cont != quit):
 
-        #Get the percentile for the students
-        print("Enter the number missed out of 70.")
-        numMissed = input()
+        #Get the number missed out of 70 questions
+        numMissed = inputNumber("Enter the number missed out of 70. ")
         
+        #Get the studet's raw score out of 70
         raw = 70 - int(numMissed)
 
         # convert raw score to percentile for 2002 ACS exam
@@ -418,9 +459,13 @@ else:
             grade = 0.4 * perc + 60; # slope is up 20 and over 50.
 
         rndGrade = round(grade,1)
+        print("")
+        print("**********************************************")
+        print("")
         print("The student raw grade is: " + str(raw))
         print("The student perentile ranking is: " + str(perc))
-        print("The student grade is: " + str(rndGrade))
+        print("")
+        print("**********************************************")
         print("")
         print("To quit hit 'q', else hit any other key.")
         cont = input()
